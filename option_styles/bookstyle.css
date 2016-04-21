@@ -1,0 +1,200 @@
+@charset "utf-8";
+html {
+}
+body{
+	writing-mode: vertical-rl;
+	-webkit-writing-mode: vertical-rl;
+	-epub-writing-mode: vertical-rl;
+	line-height: 1.75;
+	text-align: justify;
+	margin:0;
+	padding:0;
+	font-size:100%;
+}
+.vertical {
+	writing-mode: vertical-rl;
+	-webkit-writing-mode: vertical-rl;
+	-epub-writing-mode: vertical-rl;
+}
+.horizontal{
+	writing-mode:horizontal-tb;
+	-epub-writing-mode:horizontal-tb;
+	-webkit-writing-mode:horizontal-tb;
+}
+/* 縦中横 */
+.tcy {
+	font-size:0.9em;
+	letter-spacing:-0.1ex;	 
+	text-combine: horizontal;
+	-webkit-text-combine: horizontal;
+	-epub-text-combine: horizontal;
+}
+/* 傍点 */
+.sesami {
+	text-emphasis-style : sesame;
+	text-emphasis-color : #333333;
+	-epub-text-emphasis-style : sesame;
+	-epub-text-emphasis-color : #333333;
+	-webkit-text-emphasis-style : sesame;
+	-webkit-text-emphasis-color : #333333;
+}
+.ten {
+	text-emphasis-style : dot;
+	text-emphasis-color : #333333;
+	-epub-text-emphasis-style : dot;
+	-epub-text-emphasis-color : #333333;
+	-webkit-text-emphasis-style : dot;
+	-webkit-text-emphasis-color : #333333;
+}
+/* */
+h1{
+	text-indent:0em;
+	font-size:1.1em;
+	font-weight:bold;
+}
+h1.normal-title{
+	margin:0em 1em 0em 2em;
+}
+h2{
+	text-indent:1em;
+	font-size:1.1em;
+	font-weight:bold;
+}
+h2.komidashi0{
+	padding-right:1em;
+}
+h2.komidashi{
+}
+h3{
+	text-indent:2em;
+	font-size:1em;
+	font-weight:bold;
+}
+img{
+	width:auto;
+	height:auto;
+	max-width:100%;
+	max-height:100%;
+}
+b{
+	font-weight:bold;
+}
+i{
+	font-style:italic;
+}
+p{
+	text-indent:0;
+	margin:0;
+}
+p.line-indent1{
+	text-indent:1em;
+}
+p.line-indent05{
+	text-indent:0.5em;
+}
+/* 字下げ */
+p.paragraph-indent1{
+	padding-top:1em;
+	text-indent:1em;
+}
+p.paragraph-indent2{
+	padding-top:2em;
+	text-indent:1em;
+}
+p.paragraph-indent3{
+	padding-top:3em;
+	text-indent:1em;
+}
+p.paragraph-indent4{
+	padding-top:4em;
+	text-indent:1em;
+}
+p.paragraph-indent5{
+	padding-top:5em;
+	text-indent:1em;
+}
+/* 指定したブロックの直後で改ページ */
+.pagebreak-after {
+  page-break-after:  always;
+}
+/* 指定したブロックの直前で改ページ */
+.pagebreak-before {
+  page-break-before: always;
+}
+/* 指定したブロックの前後で改ページ */
+.pagebreak-both {
+  page-break-before: always;
+  page-break-after:  always;
+}
+
+/* cover.xhtml */
+body.coverpage{
+	margin:0;
+	padding:0;	
+	text-align:center;
+}
+body.coverpage div{
+	margin:0;
+	padding:0;	
+	width:100%;
+	text-align:center;
+}
+body.coverpage div img{
+	vertical-align:top;
+	width:auto;
+	height:auto;
+}
+
+/* 扉ページ（縦書き中央配置） */
+div.tobira-page{
+	width:100%;
+}
+div.tobira-text{
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:1em;
+	-epub-writing-mode:vertical-rl;
+	writing-mode:vertical-rl;
+	height:100%;
+}
+div.tobira-text h1{
+	font-size:1.2em;
+	text-indent:0;
+}
+div.tobira-text p.subtitle{
+	font-size:0.8em;
+	padding-top:4em;
+}
+/* 挿絵 */
+div.sashie{
+	margin:0;
+	padding:0;
+	width:100%;
+	text-align:center;
+}
+div.sashie img{
+	vertical-align:top;
+	width:auto;
+	height:auto;
+}
+
+/* 了 完 終*/
+p.endmark{
+	text-align:right;
+}
+/* ● ◆ */
+p.kugirimark{
+	padding-top:3em;
+}
+/* image */
+.image-wrap{
+	clear:both;
+	padding:0;
+	margin:0.2em;
+}
+
+/**/
+.-epub-media-overlay-active {
+	background-color:#ffff99;
+	color:#000000;
+}
