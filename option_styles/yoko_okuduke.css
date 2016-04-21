@@ -1,0 +1,43 @@
+@charset "utf-8";
+html {
+}
+body{
+	writing-mode:horizontal-tb;
+	-epub-writing-mode:horizontal-tb;
+	-webkit-writing-mode:horizontal-tb;
+	line-height: 1.6;
+	text-align: justify;
+	margin:0;
+	padding:0;
+	font-size:100%;
+}
+p {
+  text-indent:0;
+  margin:0;
+}
+hr.line {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #808080;
+  width:60%;
+}
+.indent_5em{
+  padding-left:5em;
+  text-indent:-5em;
+  font-size:0.9em;
+}
+p.published-date{
+  font-size:0.9em;
+  line-height:1.3em;
+}
+.note{
+  margin-top:2em;
+  text-align:right;
+  line-height:1.1em;
+  font-size:0.8em;
+}
+/**/
+.-epub-media-overlay-active {
+	background-color:#ffff99;
+	color:#000000;
+}

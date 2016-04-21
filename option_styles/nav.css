@@ -1,0 +1,63 @@
+@charset "utf-8";
+html {
+}
+body{
+	 writing-mode: vertical-rl;
+	 -webkit-writing-mode: vertical-rl;
+	 -epub-writing-mode: vertical-rl;
+	 line-height: 1.75;
+	 text-align: justify;
+	 margin:0;
+	 padding:0;
+	 font-size:100%;
+}
+h1{
+	text-indent:0;
+	font-size:1em;
+	margin-left:1em;
+}
+ol {
+  list-style-type: none;
+}
+li.le1{
+	padding-top:0;
+}
+li.le2{
+	padding-top:1em;
+}
+li.le3{
+	padding-top:2em;
+}
+a {
+	text-decoration:none;	
+}
+/* 縦中横 */
+.tcy {
+	font-size:0.9em;
+	letter-spacing:-0.1ex;	 
+	text-combine: horizontal;
+	-webkit-text-combine: horizontal;
+	-epub-text-combine: horizontal;
+}
+/* 傍点 */
+.sesami {
+	text-emphasis-style : sesame;
+	text-emphasis-color : #333333;
+	-epub-text-emphasis-style : sesame;
+	-epub-text-emphasis-color : #333333;
+	-webkit-text-emphasis-style : sesame;
+	-webkit-text-emphasis-color : #333333;
+}
+.ten {
+	text-emphasis-style : dot;
+	text-emphasis-color : #333333;
+	-epub-text-emphasis-style : dot;
+	-epub-text-emphasis-color : #333333;
+	-webkit-text-emphasis-style : dot;
+	-webkit-text-emphasis-color : #333333;
+}
+/**/
+.-epub-media-overlay-active {
+	background-color:#ffff99;
+	color:#000000;
+}
