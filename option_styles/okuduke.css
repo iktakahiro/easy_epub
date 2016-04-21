@@ -31,9 +31,12 @@ p.published-date{
   padding-bottom:1em;
 }
 .note{
-  margin-top:2em;
-  text-align:right;
+  margin-top:1.5em;
   line-height:1.1em;
+  font-size:0.8em;
+}
+.copyright{
+  margin-top:0.5em;
   font-size:0.8em;
 }
 /**/
