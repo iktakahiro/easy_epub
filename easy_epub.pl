@@ -93,7 +93,7 @@ my $bom = Encode::encode('utf8', "\x{FEFF}");
 $body[0] = substr($body[0], 3) if substr($body[0],0,3) eq $bom;
 #
 my $ruby; my $tcy;
-my ($title, $author, $illustrator, $design, $editor, $publisher); my @date_publish;
+my ($title, $author, $illustrator, $design, $editor, $publisher, $cover, $copyright); my @date_publish;
 my $buf; my $sw; my $num=0; my $nav; my $komidashi; my $komidashi_cnt=0;
 my $used_images;
 my $has_block_style;
@@ -104,8 +104,10 @@ foreach(@body){
 	if( ! $sw ){
 		$line =~ s!\r?\n!!, $title = $line,       next if($line =~ s!^[ 　]*[（\(][（\(]小説タイトル[）\)][）\)][ 　]*!! );
 		$line =~ s!\r?\n!!, $author = $line,      next if($line =~ s!^[ 　]*[（\(][（\(]小説著者[）\)][）\)][ 　]*!! );
+		$line =~ s!\r?\n!!, $copyright = $line,      next if($line =~ s!^[ 　]*[（\(][（\(]小説著作権[）\)][）\)][ 　]*!! );
 		$line =~ s!\r?\n!!, $illustrator = $line, next if($line =~ s!^[ 　]*[（\(][（\(]小説イラストレーター[）\)][）\)][ 　]*!! );
 		$line =~ s!\r?\n!!, $design = $line,      next if($line =~ s!^[ 　]*[（\(][（\(]小説デザイン[）\)][）\)][ 　]*!! );
+		$line =~ s!\r?\n!!, $cover = $line,      next if($line =~ s!^[ 　]*[（\(][（\(]小説装幀[）\)][）\)][ 　]*!! );
 		$line =~ s!\r?\n!!, $editor = $line,      next if($line =~ s!^[ 　]*[（\(][（\(]小説編集[）\)][）\)][ 　]*!! );
 		$line =~ s!\r?\n!!, $publisher = $line,   next if($line =~ s!^[ 　]*[（\(][（\(]小説発行者[）\)][）\)][ 　]*!! );
 		$line =~ s!\r?\n!!, push(@date_publish,$line),  next if($line =~ s!^[ 　]*[（\(][（\(]小説発行日[）\)][）\)][ 　]*!! );
@@ -290,7 +292,7 @@ $e->content_opf({
 	publisher=>$publisher,
 	add=>{bookslist=>$bookslist, optionpage=>$optionpage, display_index=>$has_display_index}
 });
-$e->okuduke({title=>$title, author=>$author, illustrator=>$illustrator, design=>$design, editor=>$editor, publisher=>$publisher, ymd=>\@date_publish, put_span=>$put_span});
+$e->okuduke({title=>$title, author=>$author, cover=>$cover, copyright=>$copyright, illustrator=>$illustrator, design=>$design, editor=>$editor, publisher=>$publisher, ymd=>\@date_publish, put_span=>$put_span});
 $e->cover({title=>$title});
 
 $e->override_page();
@@ -770,9 +772,15 @@ $publish
 	if($args->{publisher}){
 		$body .= qq{<p class="indent_5em">発　行　　$args->{publisher}</p>};
 	}
+        if($args->{cover}){
+                $body .= qq{<p class="indent_5em">装　幀　　$args->{cover}</p>};
+        }
 	$body .= qq{
-		<p class="note">epub3: $self->{publisher}<br /><a href="$self->{url}" class="note">$self->{url}</a></p>
+		<p class="note">本書に関するお問い合わせは info\@librabuch.jp までお願いいたします。</p>
 };
+        if($args->{copyright}){
+                $body .= qq{<p class="copyright">$args->{copyright}</p>};
+        }
 
 	if($args->{put_span}){
 		$body =~ s!(<h1[^>]*>)!$1<span class="media-overlays">!g;
